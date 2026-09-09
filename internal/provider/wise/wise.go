@@ -7,9 +7,9 @@ import (
 	"math"
 	"time"
 
-	"null-connector/internal/api"
-	"null-connector/internal/domain"
-	wiseapi "null-connector/internal/wise"
+	"nagomi-connector/internal/api"
+	"nagomi-connector/internal/domain"
+	wiseapi "nagomi-connector/internal/wise"
 
 	"github.com/charmbracelet/log"
 )

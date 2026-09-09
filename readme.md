@@ -1,1 +1,1 @@
-# null-connector
+# nagomi-connector

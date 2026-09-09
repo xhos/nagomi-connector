@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"null-connector/internal/api"
-	"null-connector/internal/domain"
-	"null-connector/internal/provider"
+	"nagomi-connector/internal/api"
+	"nagomi-connector/internal/domain"
+	"nagomi-connector/internal/provider"
 
 	"github.com/charmbracelet/log"
 )
@@ -16,7 +16,7 @@ type JobSource interface {
 	CompleteSyncJob(ctx context.Context, id int64, cursor time.Time, status *string) error
 }
 
-// Sink receives transactions for delivery to null-core
+// Sink receives transactions for delivery to nagomi-core
 type Sink interface {
 	CreateTransactions(ctx context.Context, userID string, txs []domain.Transaction) error
 }
@@ -91,7 +91,7 @@ func (r *Runner) runJob(ctx context.Context, job api.SyncJob) {
 			l.Error("sink failed", "err", err, "dropped", len(txs))
 			return
 		}
-		l.Info("posted to null-core", "count", len(txs))
+		l.Info("posted to nagomi-core", "count", len(txs))
 	}
 
 	if err := r.jobs.CompleteSyncJob(ctx, job.ID, time.Now(), nil); err != nil {

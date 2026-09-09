@@ -11,14 +11,14 @@ package provider
 import (
 	"context"
 
-	"null-connector/internal/domain"
+	"nagomi-connector/internal/domain"
 )
 
 type Provider interface {
 	// Name identifies the provider in logs.
 	Name() string
 
-	// Poll fetches transactions that have not yet been delivered to null-core.
+	// Poll fetches transactions that have not yet been delivered to nagomi-core.
 	// An empty slice with nil error means "no new transactions"; this is the
 	// expected steady state and must not be treated as an error.
 	Poll(ctx context.Context) ([]domain.Transaction, error)

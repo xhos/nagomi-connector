@@ -47,7 +47,7 @@
 
     packages = forAllSystems (pkgs: {
       default = pkgs.buildGoModule {
-        pname = "null-connector";
+        pname = "nagomi-connector";
         version = self.shortRev or self.dirtyShortRev or "dev";
         src = ./.;
         vendorHash = "sha256-hMBbuZFCz2Dia0if/gS/GPnsONIwEqX4E3b0vYudW7o=";

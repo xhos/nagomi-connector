@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             (unknown)
-// source: null/v1/connector_services.proto
+// source: nagomi/v1/connector_services.proto
 
-package nullv1
+package nagomiv1
 
 import (
 	context "context"
@@ -19,15 +19,15 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ConnectorService_ListSyncJobs_FullMethodName    = "/null.v1.ConnectorService/ListSyncJobs"
-	ConnectorService_CompleteSyncJob_FullMethodName = "/null.v1.ConnectorService/CompleteSyncJob"
+	ConnectorService_ListSyncJobs_FullMethodName    = "/nagomi.v1.ConnectorService/ListSyncJobs"
+	ConnectorService_CompleteSyncJob_FullMethodName = "/nagomi.v1.ConnectorService/CompleteSyncJob"
 )
 
 // ConnectorServiceClient is the client API for ConnectorService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// internal-only, consumed by null-connector
+// internal-only, consumed by nagomi-connector
 type ConnectorServiceClient interface {
 	ListSyncJobs(ctx context.Context, in *ListSyncJobsRequest, opts ...grpc.CallOption) (*ListSyncJobsResponse, error)
 	CompleteSyncJob(ctx context.Context, in *CompleteSyncJobRequest, opts ...grpc.CallOption) (*CompleteSyncJobResponse, error)
@@ -65,7 +65,7 @@ func (c *connectorServiceClient) CompleteSyncJob(ctx context.Context, in *Comple
 // All implementations should embed UnimplementedConnectorServiceServer
 // for forward compatibility.
 //
-// internal-only, consumed by null-connector
+// internal-only, consumed by nagomi-connector
 type ConnectorServiceServer interface {
 	ListSyncJobs(context.Context, *ListSyncJobsRequest) (*ListSyncJobsResponse, error)
 	CompleteSyncJob(context.Context, *CompleteSyncJobRequest) (*CompleteSyncJobResponse, error)
@@ -144,7 +144,7 @@ func _ConnectorService_CompleteSyncJob_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ConnectorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "null.v1.ConnectorService",
+	ServiceName: "nagomi.v1.ConnectorService",
 	HandlerType: (*ConnectorServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -157,5 +157,5 @@ var ConnectorService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "null/v1/connector_services.proto",
+	Metadata: "nagomi/v1/connector_services.proto",
 }

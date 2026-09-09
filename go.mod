@@ -1,4 +1,4 @@
-module null-connector
+module nagomi-connector
 
 go 1.26.1
 

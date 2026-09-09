@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             (unknown)
-// source: null/v1/receipt_services.proto
+// source: nagomi/v1/receipt_services.proto
 
-package nullv1
+package nagomiv1
 
 import (
 	context "context"
@@ -19,13 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ReceiptService_UploadReceipt_FullMethodName     = "/null.v1.ReceiptService/UploadReceipt"
-	ReceiptService_CreateReceipt_FullMethodName     = "/null.v1.ReceiptService/CreateReceipt"
-	ReceiptService_ListReceipts_FullMethodName      = "/null.v1.ReceiptService/ListReceipts"
-	ReceiptService_GetReceipt_FullMethodName        = "/null.v1.ReceiptService/GetReceipt"
-	ReceiptService_UpdateReceipt_FullMethodName     = "/null.v1.ReceiptService/UpdateReceipt"
-	ReceiptService_DeleteReceipt_FullMethodName     = "/null.v1.ReceiptService/DeleteReceipt"
-	ReceiptService_RetryParseReceipt_FullMethodName = "/null.v1.ReceiptService/RetryParseReceipt"
+	ReceiptService_UploadReceipt_FullMethodName     = "/nagomi.v1.ReceiptService/UploadReceipt"
+	ReceiptService_CreateReceipt_FullMethodName     = "/nagomi.v1.ReceiptService/CreateReceipt"
+	ReceiptService_ListReceipts_FullMethodName      = "/nagomi.v1.ReceiptService/ListReceipts"
+	ReceiptService_GetReceipt_FullMethodName        = "/nagomi.v1.ReceiptService/GetReceipt"
+	ReceiptService_UpdateReceipt_FullMethodName     = "/nagomi.v1.ReceiptService/UpdateReceipt"
+	ReceiptService_DeleteReceipt_FullMethodName     = "/nagomi.v1.ReceiptService/DeleteReceipt"
+	ReceiptService_RetryParseReceipt_FullMethodName = "/nagomi.v1.ReceiptService/RetryParseReceipt"
 )
 
 // ReceiptServiceClient is the client API for ReceiptService service.
@@ -310,7 +310,7 @@ func _ReceiptService_RetryParseReceipt_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ReceiptService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "null.v1.ReceiptService",
+	ServiceName: "nagomi.v1.ReceiptService",
 	HandlerType: (*ReceiptServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -343,5 +343,5 @@ var ReceiptService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "null/v1/receipt_services.proto",
+	Metadata: "nagomi/v1/receipt_services.proto",
 }

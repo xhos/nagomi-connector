@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             (unknown)
-// source: null/v1/connection_services.proto
+// source: nagomi/v1/connection_services.proto
 
-package nullv1
+package nagomiv1
 
 import (
 	context "context"
@@ -19,9 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ConnectionsService_ListConnections_FullMethodName  = "/null.v1.ConnectionsService/ListConnections"
-	ConnectionsService_CreateConnection_FullMethodName = "/null.v1.ConnectionsService/CreateConnection"
-	ConnectionsService_DeleteConnection_FullMethodName = "/null.v1.ConnectionsService/DeleteConnection"
+	ConnectionsService_ListConnections_FullMethodName  = "/nagomi.v1.ConnectionsService/ListConnections"
+	ConnectionsService_CreateConnection_FullMethodName = "/nagomi.v1.ConnectionsService/CreateConnection"
+	ConnectionsService_DeleteConnection_FullMethodName = "/nagomi.v1.ConnectionsService/DeleteConnection"
+	ConnectionsService_TriggerSync_FullMethodName      = "/nagomi.v1.ConnectionsService/TriggerSync"
+	ConnectionsService_SetSyncInterval_FullMethodName  = "/nagomi.v1.ConnectionsService/SetSyncInterval"
 )
 
 // ConnectionsServiceClient is the client API for ConnectionsService service.
@@ -31,6 +33,8 @@ type ConnectionsServiceClient interface {
 	ListConnections(ctx context.Context, in *ListConnectionsRequest, opts ...grpc.CallOption) (*ListConnectionsResponse, error)
 	CreateConnection(ctx context.Context, in *CreateConnectionRequest, opts ...grpc.CallOption) (*CreateConnectionResponse, error)
 	DeleteConnection(ctx context.Context, in *DeleteConnectionRequest, opts ...grpc.CallOption) (*DeleteConnectionResponse, error)
+	TriggerSync(ctx context.Context, in *TriggerSyncRequest, opts ...grpc.CallOption) (*TriggerSyncResponse, error)
+	SetSyncInterval(ctx context.Context, in *SetSyncIntervalRequest, opts ...grpc.CallOption) (*SetSyncIntervalResponse, error)
 }
 
 type connectionsServiceClient struct {
@@ -71,6 +75,26 @@ func (c *connectionsServiceClient) DeleteConnection(ctx context.Context, in *Del
 	return out, nil
 }
 
+func (c *connectionsServiceClient) TriggerSync(ctx context.Context, in *TriggerSyncRequest, opts ...grpc.CallOption) (*TriggerSyncResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TriggerSyncResponse)
+	err := c.cc.Invoke(ctx, ConnectionsService_TriggerSync_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *connectionsServiceClient) SetSyncInterval(ctx context.Context, in *SetSyncIntervalRequest, opts ...grpc.CallOption) (*SetSyncIntervalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSyncIntervalResponse)
+	err := c.cc.Invoke(ctx, ConnectionsService_SetSyncInterval_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ConnectionsServiceServer is the server API for ConnectionsService service.
 // All implementations should embed UnimplementedConnectionsServiceServer
 // for forward compatibility.
@@ -78,6 +102,8 @@ type ConnectionsServiceServer interface {
 	ListConnections(context.Context, *ListConnectionsRequest) (*ListConnectionsResponse, error)
 	CreateConnection(context.Context, *CreateConnectionRequest) (*CreateConnectionResponse, error)
 	DeleteConnection(context.Context, *DeleteConnectionRequest) (*DeleteConnectionResponse, error)
+	TriggerSync(context.Context, *TriggerSyncRequest) (*TriggerSyncResponse, error)
+	SetSyncInterval(context.Context, *SetSyncIntervalRequest) (*SetSyncIntervalResponse, error)
 }
 
 // UnimplementedConnectionsServiceServer should be embedded to have
@@ -95,6 +121,12 @@ func (UnimplementedConnectionsServiceServer) CreateConnection(context.Context, *
 }
 func (UnimplementedConnectionsServiceServer) DeleteConnection(context.Context, *DeleteConnectionRequest) (*DeleteConnectionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DeleteConnection not implemented")
+}
+func (UnimplementedConnectionsServiceServer) TriggerSync(context.Context, *TriggerSyncRequest) (*TriggerSyncResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TriggerSync not implemented")
+}
+func (UnimplementedConnectionsServiceServer) SetSyncInterval(context.Context, *SetSyncIntervalRequest) (*SetSyncIntervalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSyncInterval not implemented")
 }
 func (UnimplementedConnectionsServiceServer) testEmbeddedByValue() {}
 
@@ -170,11 +202,47 @@ func _ConnectionsService_DeleteConnection_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ConnectionsService_TriggerSync_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TriggerSyncRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectionsServiceServer).TriggerSync(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectionsService_TriggerSync_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectionsServiceServer).TriggerSync(ctx, req.(*TriggerSyncRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConnectionsService_SetSyncInterval_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSyncIntervalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConnectionsServiceServer).SetSyncInterval(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConnectionsService_SetSyncInterval_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConnectionsServiceServer).SetSyncInterval(ctx, req.(*SetSyncIntervalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ConnectionsService_ServiceDesc is the grpc.ServiceDesc for ConnectionsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ConnectionsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "null.v1.ConnectionsService",
+	ServiceName: "nagomi.v1.ConnectionsService",
 	HandlerType: (*ConnectionsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -189,7 +257,15 @@ var ConnectionsService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "DeleteConnection",
 			Handler:    _ConnectionsService_DeleteConnection_Handler,
 		},
+		{
+			MethodName: "TriggerSync",
+			Handler:    _ConnectionsService_TriggerSync_Handler,
+		},
+		{
+			MethodName: "SetSyncInterval",
+			Handler:    _ConnectionsService_SetSyncInterval_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "null/v1/connection_services.proto",
+	Metadata: "nagomi/v1/connection_services.proto",
 }

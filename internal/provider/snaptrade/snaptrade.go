@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"null-connector/internal/api"
-	"null-connector/internal/domain"
+	"nagomi-connector/internal/api"
+	"nagomi-connector/internal/domain"
 
 	"github.com/charmbracelet/log"
 	sdk "github.com/passiv/snaptrade-sdks/sdks/go"
@@ -19,7 +19,7 @@ type Config struct {
 	ClientID    string `json:"-"`
 	ConsumerKey string `json:"-"`
 	// snaptrade's own per-end-user handle + secret, issued by /registerUser
-	// and stored in the encrypted credentials blob. not the null-core UUID.
+	// and stored in the encrypted credentials blob. not the nagomi-core UUID.
 	SnapTradeUserID string `json:"snaptrade_user_id"`
 	UserSecret      string `json:"user_secret"`
 }
@@ -36,7 +36,7 @@ type Provider struct {
 const initialLookback = 730 * 24 * time.Hour
 
 // Overlap the cursor window by a day to cover day-granularity trade_date
-// timestamps on incremental polls. Dedup is handled by null-core on
+// timestamps on incremental polls. Dedup is handled by nagomi-core on
 // (account_id, external_id).
 const cursorOverlap = 24 * time.Hour
 
@@ -83,7 +83,7 @@ func (p *Provider) Poll(ctx context.Context) ([]domain.Transaction, error) {
 	var txs []domain.Transaction
 	for i := range accounts {
 		acc := &accounts[i]
-		nullAccountID, err := p.resolveAccount(ctx, accountMap, acc)
+		nagomiAccountID, err := p.resolveAccount(ctx, accountMap, acc)
 		if err != nil {
 			p.log.Error("resolve account failed", "snaptrade_account_id", acc.Id, "err", err)
 			continue
@@ -96,7 +96,7 @@ func (p *Provider) Poll(ctx context.Context) ([]domain.Transaction, error) {
 		}
 
 		for j := range activities {
-			if tx, ok := toDomain(&activities[j], nullAccountID); ok {
+			if tx, ok := toDomain(&activities[j], nagomiAccountID); ok {
 				txs = append(txs, tx)
 			}
 		}

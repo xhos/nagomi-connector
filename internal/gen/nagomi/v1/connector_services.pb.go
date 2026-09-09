@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: null/v1/connector_services.proto
+// source: nagomi/v1/connector_services.proto
 
-package nullv1
+package nagomiv1
 
 import (
 	_ "buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go/buf/validate"
@@ -37,7 +37,7 @@ type SyncJob struct {
 
 func (x *SyncJob) Reset() {
 	*x = SyncJob{}
-	mi := &file_null_v1_connector_services_proto_msgTypes[0]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -49,7 +49,7 @@ func (x *SyncJob) String() string {
 func (*SyncJob) ProtoMessage() {}
 
 func (x *SyncJob) ProtoReflect() protoreflect.Message {
-	mi := &file_null_v1_connector_services_proto_msgTypes[0]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -62,7 +62,7 @@ func (x *SyncJob) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SyncJob.ProtoReflect.Descriptor instead.
 func (*SyncJob) Descriptor() ([]byte, []int) {
-	return file_null_v1_connector_services_proto_rawDescGZIP(), []int{0}
+	return file_nagomi_v1_connector_services_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *SyncJob) GetId() int64 {
@@ -108,7 +108,7 @@ type ListSyncJobsRequest struct {
 
 func (x *ListSyncJobsRequest) Reset() {
 	*x = ListSyncJobsRequest{}
-	mi := &file_null_v1_connector_services_proto_msgTypes[1]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -120,7 +120,7 @@ func (x *ListSyncJobsRequest) String() string {
 func (*ListSyncJobsRequest) ProtoMessage() {}
 
 func (x *ListSyncJobsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_null_v1_connector_services_proto_msgTypes[1]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -133,7 +133,7 @@ func (x *ListSyncJobsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSyncJobsRequest.ProtoReflect.Descriptor instead.
 func (*ListSyncJobsRequest) Descriptor() ([]byte, []int) {
-	return file_null_v1_connector_services_proto_rawDescGZIP(), []int{1}
+	return file_nagomi_v1_connector_services_proto_rawDescGZIP(), []int{1}
 }
 
 type ListSyncJobsResponse struct {
@@ -145,7 +145,7 @@ type ListSyncJobsResponse struct {
 
 func (x *ListSyncJobsResponse) Reset() {
 	*x = ListSyncJobsResponse{}
-	mi := &file_null_v1_connector_services_proto_msgTypes[2]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -157,7 +157,7 @@ func (x *ListSyncJobsResponse) String() string {
 func (*ListSyncJobsResponse) ProtoMessage() {}
 
 func (x *ListSyncJobsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_null_v1_connector_services_proto_msgTypes[2]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -170,7 +170,7 @@ func (x *ListSyncJobsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSyncJobsResponse.ProtoReflect.Descriptor instead.
 func (*ListSyncJobsResponse) Descriptor() ([]byte, []int) {
-	return file_null_v1_connector_services_proto_rawDescGZIP(), []int{2}
+	return file_nagomi_v1_connector_services_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ListSyncJobsResponse) GetJobs() []*SyncJob {
@@ -192,7 +192,7 @@ type CompleteSyncJobRequest struct {
 
 func (x *CompleteSyncJobRequest) Reset() {
 	*x = CompleteSyncJobRequest{}
-	mi := &file_null_v1_connector_services_proto_msgTypes[3]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -204,7 +204,7 @@ func (x *CompleteSyncJobRequest) String() string {
 func (*CompleteSyncJobRequest) ProtoMessage() {}
 
 func (x *CompleteSyncJobRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_null_v1_connector_services_proto_msgTypes[3]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -217,7 +217,7 @@ func (x *CompleteSyncJobRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompleteSyncJobRequest.ProtoReflect.Descriptor instead.
 func (*CompleteSyncJobRequest) Descriptor() ([]byte, []int) {
-	return file_null_v1_connector_services_proto_rawDescGZIP(), []int{3}
+	return file_nagomi_v1_connector_services_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CompleteSyncJobRequest) GetId() int64 {
@@ -249,7 +249,7 @@ type CompleteSyncJobResponse struct {
 
 func (x *CompleteSyncJobResponse) Reset() {
 	*x = CompleteSyncJobResponse{}
-	mi := &file_null_v1_connector_services_proto_msgTypes[4]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -261,7 +261,7 @@ func (x *CompleteSyncJobResponse) String() string {
 func (*CompleteSyncJobResponse) ProtoMessage() {}
 
 func (x *CompleteSyncJobResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_null_v1_connector_services_proto_msgTypes[4]
+	mi := &file_nagomi_v1_connector_services_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -274,14 +274,14 @@ func (x *CompleteSyncJobResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompleteSyncJobResponse.ProtoReflect.Descriptor instead.
 func (*CompleteSyncJobResponse) Descriptor() ([]byte, []int) {
-	return file_null_v1_connector_services_proto_rawDescGZIP(), []int{4}
+	return file_nagomi_v1_connector_services_proto_rawDescGZIP(), []int{4}
 }
 
-var File_null_v1_connector_services_proto protoreflect.FileDescriptor
+var File_nagomi_v1_connector_services_proto protoreflect.FileDescriptor
 
-const file_null_v1_connector_services_proto_rawDesc = "" +
+const file_nagomi_v1_connector_services_proto_rawDesc = "" +
 	"\n" +
-	" null/v1/connector_services.proto\x12\anull.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb4\x01\n" +
+	"\"nagomi/v1/connector_services.proto\x12\tnagomi.v1\x1a\x1bbuf/validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb4\x01\n" +
 	"\aSyncJob\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x1a\n" +
@@ -289,50 +289,51 @@ const file_null_v1_connector_services_proto_rawDesc = "" +
 	"\vcredentials\x18\x04 \x01(\fR\vcredentials\x127\n" +
 	"\x06cursor\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampH\x00R\x06cursor\x88\x01\x01B\t\n" +
 	"\a_cursor\"\x15\n" +
-	"\x13ListSyncJobsRequest\"<\n" +
-	"\x14ListSyncJobsResponse\x12$\n" +
-	"\x04jobs\x18\x01 \x03(\v2\x10.null.v1.SyncJobR\x04jobs\"\x9d\x01\n" +
+	"\x13ListSyncJobsRequest\">\n" +
+	"\x14ListSyncJobsResponse\x12&\n" +
+	"\x04jobs\x18\x01 \x03(\v2\x12.nagomi.v1.SyncJobR\x04jobs\"\x9d\x01\n" +
 	"\x16CompleteSyncJobRequest\x12\x17\n" +
 	"\x02id\x18\x01 \x01(\x03B\a\xbaH\x04\"\x02 \x00R\x02id\x127\n" +
 	"\x06cursor\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampH\x00R\x06cursor\x88\x01\x01\x12\x1b\n" +
 	"\x06status\x18\x03 \x01(\tH\x01R\x06status\x88\x01\x01B\t\n" +
 	"\a_cursorB\t\n" +
 	"\a_status\"\x19\n" +
-	"\x17CompleteSyncJobResponse2\xb5\x01\n" +
-	"\x10ConnectorService\x12K\n" +
-	"\fListSyncJobs\x12\x1c.null.v1.ListSyncJobsRequest\x1a\x1d.null.v1.ListSyncJobsResponse\x12T\n" +
-	"\x0fCompleteSyncJob\x12\x1f.null.v1.CompleteSyncJobRequest\x1a .null.v1.CompleteSyncJobResponseB\x90\x01\n" +
-	"\vcom.null.v1B\x16ConnectorServicesProtoP\x01Z*null-connector/internal/gen/null/v1;nullv1\xa2\x02\x03NXX\xaa\x02\aNull.V1\xca\x02\bNull_\\V1\xe2\x02\x14Null_\\V1\\GPBMetadata\xea\x02\bNull::V1b\x06proto3"
+	"\x17CompleteSyncJobResponse2\xbd\x01\n" +
+	"\x10ConnectorService\x12O\n" +
+	"\fListSyncJobs\x12\x1e.nagomi.v1.ListSyncJobsRequest\x1a\x1f.nagomi.v1.ListSyncJobsResponse\x12X\n" +
+	"\x0fCompleteSyncJob\x12!.nagomi.v1.CompleteSyncJobRequest\x1a\".nagomi.v1.CompleteSyncJobResponseB\x9e\x01\n" +
+	"\rcom.nagomi.v1B\x16ConnectorServicesProtoP\x01Z0nagomi-connector/internal/gen/nagomi/v1;nagomiv1\xa2\x02\x03NXX\xaa\x02\tNagomi.V1\xca\x02\tNagomi\\V1\xe2\x02\x15Nagomi\\V1\\GPBMetadata\xea\x02\n" +
+	"Nagomi::V1b\x06proto3"
 
 var (
-	file_null_v1_connector_services_proto_rawDescOnce sync.Once
-	file_null_v1_connector_services_proto_rawDescData []byte
+	file_nagomi_v1_connector_services_proto_rawDescOnce sync.Once
+	file_nagomi_v1_connector_services_proto_rawDescData []byte
 )
 
-func file_null_v1_connector_services_proto_rawDescGZIP() []byte {
-	file_null_v1_connector_services_proto_rawDescOnce.Do(func() {
-		file_null_v1_connector_services_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_null_v1_connector_services_proto_rawDesc), len(file_null_v1_connector_services_proto_rawDesc)))
+func file_nagomi_v1_connector_services_proto_rawDescGZIP() []byte {
+	file_nagomi_v1_connector_services_proto_rawDescOnce.Do(func() {
+		file_nagomi_v1_connector_services_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_nagomi_v1_connector_services_proto_rawDesc), len(file_nagomi_v1_connector_services_proto_rawDesc)))
 	})
-	return file_null_v1_connector_services_proto_rawDescData
+	return file_nagomi_v1_connector_services_proto_rawDescData
 }
 
-var file_null_v1_connector_services_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
-var file_null_v1_connector_services_proto_goTypes = []any{
-	(*SyncJob)(nil),                 // 0: null.v1.SyncJob
-	(*ListSyncJobsRequest)(nil),     // 1: null.v1.ListSyncJobsRequest
-	(*ListSyncJobsResponse)(nil),    // 2: null.v1.ListSyncJobsResponse
-	(*CompleteSyncJobRequest)(nil),  // 3: null.v1.CompleteSyncJobRequest
-	(*CompleteSyncJobResponse)(nil), // 4: null.v1.CompleteSyncJobResponse
+var file_nagomi_v1_connector_services_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_nagomi_v1_connector_services_proto_goTypes = []any{
+	(*SyncJob)(nil),                 // 0: nagomi.v1.SyncJob
+	(*ListSyncJobsRequest)(nil),     // 1: nagomi.v1.ListSyncJobsRequest
+	(*ListSyncJobsResponse)(nil),    // 2: nagomi.v1.ListSyncJobsResponse
+	(*CompleteSyncJobRequest)(nil),  // 3: nagomi.v1.CompleteSyncJobRequest
+	(*CompleteSyncJobResponse)(nil), // 4: nagomi.v1.CompleteSyncJobResponse
 	(*timestamppb.Timestamp)(nil),   // 5: google.protobuf.Timestamp
 }
-var file_null_v1_connector_services_proto_depIdxs = []int32{
-	5, // 0: null.v1.SyncJob.cursor:type_name -> google.protobuf.Timestamp
-	0, // 1: null.v1.ListSyncJobsResponse.jobs:type_name -> null.v1.SyncJob
-	5, // 2: null.v1.CompleteSyncJobRequest.cursor:type_name -> google.protobuf.Timestamp
-	1, // 3: null.v1.ConnectorService.ListSyncJobs:input_type -> null.v1.ListSyncJobsRequest
-	3, // 4: null.v1.ConnectorService.CompleteSyncJob:input_type -> null.v1.CompleteSyncJobRequest
-	2, // 5: null.v1.ConnectorService.ListSyncJobs:output_type -> null.v1.ListSyncJobsResponse
-	4, // 6: null.v1.ConnectorService.CompleteSyncJob:output_type -> null.v1.CompleteSyncJobResponse
+var file_nagomi_v1_connector_services_proto_depIdxs = []int32{
+	5, // 0: nagomi.v1.SyncJob.cursor:type_name -> google.protobuf.Timestamp
+	0, // 1: nagomi.v1.ListSyncJobsResponse.jobs:type_name -> nagomi.v1.SyncJob
+	5, // 2: nagomi.v1.CompleteSyncJobRequest.cursor:type_name -> google.protobuf.Timestamp
+	1, // 3: nagomi.v1.ConnectorService.ListSyncJobs:input_type -> nagomi.v1.ListSyncJobsRequest
+	3, // 4: nagomi.v1.ConnectorService.CompleteSyncJob:input_type -> nagomi.v1.CompleteSyncJobRequest
+	2, // 5: nagomi.v1.ConnectorService.ListSyncJobs:output_type -> nagomi.v1.ListSyncJobsResponse
+	4, // 6: nagomi.v1.ConnectorService.CompleteSyncJob:output_type -> nagomi.v1.CompleteSyncJobResponse
 	5, // [5:7] is the sub-list for method output_type
 	3, // [3:5] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -340,28 +341,28 @@ var file_null_v1_connector_services_proto_depIdxs = []int32{
 	0, // [0:3] is the sub-list for field type_name
 }
 
-func init() { file_null_v1_connector_services_proto_init() }
-func file_null_v1_connector_services_proto_init() {
-	if File_null_v1_connector_services_proto != nil {
+func init() { file_nagomi_v1_connector_services_proto_init() }
+func file_nagomi_v1_connector_services_proto_init() {
+	if File_nagomi_v1_connector_services_proto != nil {
 		return
 	}
-	file_null_v1_connector_services_proto_msgTypes[0].OneofWrappers = []any{}
-	file_null_v1_connector_services_proto_msgTypes[3].OneofWrappers = []any{}
+	file_nagomi_v1_connector_services_proto_msgTypes[0].OneofWrappers = []any{}
+	file_nagomi_v1_connector_services_proto_msgTypes[3].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_null_v1_connector_services_proto_rawDesc), len(file_null_v1_connector_services_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_nagomi_v1_connector_services_proto_rawDesc), len(file_nagomi_v1_connector_services_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_null_v1_connector_services_proto_goTypes,
-		DependencyIndexes: file_null_v1_connector_services_proto_depIdxs,
-		MessageInfos:      file_null_v1_connector_services_proto_msgTypes,
+		GoTypes:           file_nagomi_v1_connector_services_proto_goTypes,
+		DependencyIndexes: file_nagomi_v1_connector_services_proto_depIdxs,
+		MessageInfos:      file_nagomi_v1_connector_services_proto_msgTypes,
 	}.Build()
-	File_null_v1_connector_services_proto = out.File
-	file_null_v1_connector_services_proto_goTypes = nil
-	file_null_v1_connector_services_proto_depIdxs = nil
+	File_nagomi_v1_connector_services_proto = out.File
+	file_nagomi_v1_connector_services_proto_goTypes = nil
+	file_nagomi_v1_connector_services_proto_depIdxs = nil
 }

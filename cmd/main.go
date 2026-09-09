@@ -10,13 +10,13 @@ import (
 	"syscall"
 	"time"
 
-	"null-connector/internal/api"
-	"null-connector/internal/config"
-	"null-connector/internal/grpc"
-	"null-connector/internal/provider"
-	"null-connector/internal/provider/snaptrade"
-	"null-connector/internal/provider/wise"
-	"null-connector/internal/runner"
+	"nagomi-connector/internal/api"
+	"nagomi-connector/internal/config"
+	"nagomi-connector/internal/grpc"
+	"nagomi-connector/internal/provider"
+	"nagomi-connector/internal/provider/snaptrade"
+	"nagomi-connector/internal/provider/wise"
+	"nagomi-connector/internal/runner"
 
 	"github.com/charmbracelet/log"
 )
@@ -37,10 +37,10 @@ func main() {
 		Formatter:       logFormatter,
 	})
 
-	logger.Info("starting null-connector")
+	logger.Info("starting nagomi-connector")
 	logger.Debug("debug is enabled")
 
-	apiClient, err := api.NewClient(cfg.NullCoreURL, cfg.APIKey)
+	apiClient, err := api.NewClient(cfg.NagomiCoreURL, cfg.APIKey)
 	if err != nil {
 		logger.Fatal("api client init", "err", err)
 	}
@@ -50,11 +50,11 @@ func main() {
 		}
 	}()
 
-	logger.Info("checking null-core connectivity", "url", cfg.NullCoreURL)
+	logger.Info("checking nagomi-core connectivity", "url", cfg.NagomiCoreURL)
 	if err := apiClient.Ping(context.Background()); err != nil {
-		logger.Fatal("null-core not reachable", "err", err)
+		logger.Fatal("nagomi-core not reachable", "err", err)
 	}
-	logger.Info("null-core connectivity confirmed")
+	logger.Info("nagomi-core connectivity confirmed")
 
 	grpcHealthSrv, err := grpc.NewHealthServer(cfg.GRPCAddress)
 	if err != nil {

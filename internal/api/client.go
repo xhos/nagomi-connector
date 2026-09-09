@@ -7,8 +7,8 @@ import (
 	"math"
 	"time"
 
-	"null-connector/internal/domain"
-	pb "null-connector/internal/gen/null/v1"
+	"nagomi-connector/internal/domain"
+	pb "nagomi-connector/internal/gen/nagomi/v1"
 
 	"google.golang.org/genproto/googleapis/type/money"
 	"google.golang.org/grpc"
@@ -32,10 +32,10 @@ type Client struct {
 
 var ErrAccountNotFound = errors.New("account not found")
 
-func NewClient(nullCoreURL, authToken string) (*Client, error) {
-	conn, err := grpc.NewClient(nullCoreURL, grpc.WithTransportCredentials(insecure.NewCredentials()))
+func NewClient(nagomiCoreURL, authToken string) (*Client, error) {
+	conn, err := grpc.NewClient(nagomiCoreURL, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
-		return nil, fmt.Errorf("dial null-core: %w", err)
+		return nil, fmt.Errorf("dial nagomi-core: %w", err)
 	}
 
 	return &Client{
@@ -55,13 +55,13 @@ func (c *Client) Close() error {
 
 func (c *Client) Ping(ctx context.Context) error {
 	resp, err := c.healthClient.Check(ctx, &grpc_health_v1.HealthCheckRequest{
-		Service: "null.v1.ConnectorService",
+		Service: "nagomi.v1.ConnectorService",
 	})
 	if err != nil {
-		return fmt.Errorf("ping null-core: %w", err)
+		return fmt.Errorf("ping nagomi-core: %w", err)
 	}
 	if resp.Status != grpc_health_v1.HealthCheckResponse_SERVING {
-		return fmt.Errorf("null-core not serving: %s", resp.Status)
+		return fmt.Errorf("nagomi-core not serving: %s", resp.Status)
 	}
 	return nil
 }

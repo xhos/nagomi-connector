@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: null/v1/receipt.proto
+// source: nagomi/v1/receipt.proto
 
-package nullv1
+package nagomiv1
 
 import (
 	date "google.golang.org/genproto/googleapis/type/date"
@@ -63,11 +63,11 @@ func (x ReceiptStatus) String() string {
 }
 
 func (ReceiptStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_null_v1_receipt_proto_enumTypes[0].Descriptor()
+	return file_nagomi_v1_receipt_proto_enumTypes[0].Descriptor()
 }
 
 func (ReceiptStatus) Type() protoreflect.EnumType {
-	return &file_null_v1_receipt_proto_enumTypes[0]
+	return &file_nagomi_v1_receipt_proto_enumTypes[0]
 }
 
 func (x ReceiptStatus) Number() protoreflect.EnumNumber {
@@ -76,7 +76,7 @@ func (x ReceiptStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReceiptStatus.Descriptor instead.
 func (ReceiptStatus) EnumDescriptor() ([]byte, []int) {
-	return file_null_v1_receipt_proto_rawDescGZIP(), []int{0}
+	return file_nagomi_v1_receipt_proto_rawDescGZIP(), []int{0}
 }
 
 type ReceiptItem struct {
@@ -94,7 +94,7 @@ type ReceiptItem struct {
 
 func (x *ReceiptItem) Reset() {
 	*x = ReceiptItem{}
-	mi := &file_null_v1_receipt_proto_msgTypes[0]
+	mi := &file_nagomi_v1_receipt_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -106,7 +106,7 @@ func (x *ReceiptItem) String() string {
 func (*ReceiptItem) ProtoMessage() {}
 
 func (x *ReceiptItem) ProtoReflect() protoreflect.Message {
-	mi := &file_null_v1_receipt_proto_msgTypes[0]
+	mi := &file_nagomi_v1_receipt_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -119,7 +119,7 @@ func (x *ReceiptItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReceiptItem.ProtoReflect.Descriptor instead.
 func (*ReceiptItem) Descriptor() ([]byte, []int) {
-	return file_null_v1_receipt_proto_rawDescGZIP(), []int{0}
+	return file_nagomi_v1_receipt_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *ReceiptItem) GetId() int64 {
@@ -184,7 +184,7 @@ type Receipt struct {
 	Tax                 *money.Money           `protobuf:"bytes,9,opt,name=tax,proto3,oneof" json:"tax,omitempty"`
 	Total               *money.Money           `protobuf:"bytes,10,opt,name=total,proto3,oneof" json:"total,omitempty"`
 	Confidence          *float32               `protobuf:"fixed32,11,opt,name=confidence,proto3,oneof" json:"confidence,omitempty"`
-	Status              ReceiptStatus          `protobuf:"varint,12,opt,name=status,proto3,enum=null.v1.ReceiptStatus" json:"status,omitempty"`
+	Status              ReceiptStatus          `protobuf:"varint,12,opt,name=status,proto3,enum=nagomi.v1.ReceiptStatus" json:"status,omitempty"`
 	Items               []*ReceiptItem         `protobuf:"bytes,13,rep,name=items,proto3" json:"items,omitempty"`
 	CreatedAt           *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt           *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
@@ -199,7 +199,7 @@ type Receipt struct {
 
 func (x *Receipt) Reset() {
 	*x = Receipt{}
-	mi := &file_null_v1_receipt_proto_msgTypes[1]
+	mi := &file_nagomi_v1_receipt_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -211,7 +211,7 @@ func (x *Receipt) String() string {
 func (*Receipt) ProtoMessage() {}
 
 func (x *Receipt) ProtoReflect() protoreflect.Message {
-	mi := &file_null_v1_receipt_proto_msgTypes[1]
+	mi := &file_nagomi_v1_receipt_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -224,7 +224,7 @@ func (x *Receipt) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Receipt.ProtoReflect.Descriptor instead.
 func (*Receipt) Descriptor() ([]byte, []int) {
-	return file_null_v1_receipt_proto_rawDescGZIP(), []int{1}
+	return file_nagomi_v1_receipt_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Receipt) GetId() int64 {
@@ -383,7 +383,7 @@ type ReceiptLinkCandidate struct {
 
 func (x *ReceiptLinkCandidate) Reset() {
 	*x = ReceiptLinkCandidate{}
-	mi := &file_null_v1_receipt_proto_msgTypes[2]
+	mi := &file_nagomi_v1_receipt_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -395,7 +395,7 @@ func (x *ReceiptLinkCandidate) String() string {
 func (*ReceiptLinkCandidate) ProtoMessage() {}
 
 func (x *ReceiptLinkCandidate) ProtoReflect() protoreflect.Message {
-	mi := &file_null_v1_receipt_proto_msgTypes[2]
+	mi := &file_nagomi_v1_receipt_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -408,7 +408,7 @@ func (x *ReceiptLinkCandidate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReceiptLinkCandidate.ProtoReflect.Descriptor instead.
 func (*ReceiptLinkCandidate) Descriptor() ([]byte, []int) {
-	return file_null_v1_receipt_proto_rawDescGZIP(), []int{2}
+	return file_nagomi_v1_receipt_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ReceiptLinkCandidate) GetTransactionId() int64 {
@@ -467,11 +467,11 @@ func (x *ReceiptLinkCandidate) GetAmountDiffCents() int64 {
 	return 0
 }
 
-var File_null_v1_receipt_proto protoreflect.FileDescriptor
+var File_nagomi_v1_receipt_proto protoreflect.FileDescriptor
 
-const file_null_v1_receipt_proto_rawDesc = "" +
+const file_nagomi_v1_receipt_proto_rawDesc = "" +
 	"\n" +
-	"\x15null/v1/receipt.proto\x12\anull.v1\x1a\x17google/type/money.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16google/type/date.proto\"\xe7\x01\n" +
+	"\x17nagomi/v1/receipt.proto\x12\tnagomi.v1\x1a\x17google/type/money.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16google/type/date.proto\"\xe7\x01\n" +
 	"\vReceiptItem\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1d\n" +
 	"\n" +
@@ -483,7 +483,7 @@ const file_null_v1_receipt_proto_rawDesc = "" +
 	"unit_price\x18\x06 \x01(\v2\x12.google.type.MoneyR\tunitPrice\x12\x1d\n" +
 	"\n" +
 	"sort_order\x18\a \x01(\x05R\tsortOrderB\a\n" +
-	"\x05_name\"\xe5\b\n" +
+	"\x05_name\"\xe9\b\n" +
 	"\aReceipt\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12*\n" +
@@ -499,9 +499,9 @@ const file_null_v1_receipt_proto_rawDesc = "" +
 	" \x01(\v2\x12.google.type.MoneyH\aR\x05total\x88\x01\x01\x12#\n" +
 	"\n" +
 	"confidence\x18\v \x01(\x02H\bR\n" +
-	"confidence\x88\x01\x01\x12.\n" +
-	"\x06status\x18\f \x01(\x0e2\x16.null.v1.ReceiptStatusR\x06status\x12*\n" +
-	"\x05items\x18\r \x03(\v2\x14.null.v1.ReceiptItemR\x05items\x129\n" +
+	"confidence\x88\x01\x01\x120\n" +
+	"\x06status\x18\f \x01(\x0e2\x18.nagomi.v1.ReceiptStatusR\x06status\x12,\n" +
+	"\x05items\x18\r \x03(\v2\x16.nagomi.v1.ReceiptItemR\x05items\x129\n" +
 	"\n" +
 	"created_at\x18\x0e \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
@@ -541,47 +541,48 @@ const file_null_v1_receipt_proto_rawDesc = "" +
 	"\x16RECEIPT_STATUS_PENDING\x10\x01\x12\x19\n" +
 	"\x15RECEIPT_STATUS_PARSED\x10\x02\x12\x19\n" +
 	"\x15RECEIPT_STATUS_LINKED\x10\x03\x12\x19\n" +
-	"\x15RECEIPT_STATUS_FAILED\x10\x04B\x86\x01\n" +
-	"\vcom.null.v1B\fReceiptProtoP\x01Z*null-connector/internal/gen/null/v1;nullv1\xa2\x02\x03NXX\xaa\x02\aNull.V1\xca\x02\bNull_\\V1\xe2\x02\x14Null_\\V1\\GPBMetadata\xea\x02\bNull::V1b\x06proto3"
+	"\x15RECEIPT_STATUS_FAILED\x10\x04B\x94\x01\n" +
+	"\rcom.nagomi.v1B\fReceiptProtoP\x01Z0nagomi-connector/internal/gen/nagomi/v1;nagomiv1\xa2\x02\x03NXX\xaa\x02\tNagomi.V1\xca\x02\tNagomi\\V1\xe2\x02\x15Nagomi\\V1\\GPBMetadata\xea\x02\n" +
+	"Nagomi::V1b\x06proto3"
 
 var (
-	file_null_v1_receipt_proto_rawDescOnce sync.Once
-	file_null_v1_receipt_proto_rawDescData []byte
+	file_nagomi_v1_receipt_proto_rawDescOnce sync.Once
+	file_nagomi_v1_receipt_proto_rawDescData []byte
 )
 
-func file_null_v1_receipt_proto_rawDescGZIP() []byte {
-	file_null_v1_receipt_proto_rawDescOnce.Do(func() {
-		file_null_v1_receipt_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_null_v1_receipt_proto_rawDesc), len(file_null_v1_receipt_proto_rawDesc)))
+func file_nagomi_v1_receipt_proto_rawDescGZIP() []byte {
+	file_nagomi_v1_receipt_proto_rawDescOnce.Do(func() {
+		file_nagomi_v1_receipt_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_nagomi_v1_receipt_proto_rawDesc), len(file_nagomi_v1_receipt_proto_rawDesc)))
 	})
-	return file_null_v1_receipt_proto_rawDescData
+	return file_nagomi_v1_receipt_proto_rawDescData
 }
 
-var file_null_v1_receipt_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_null_v1_receipt_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_null_v1_receipt_proto_goTypes = []any{
-	(ReceiptStatus)(0),            // 0: null.v1.ReceiptStatus
-	(*ReceiptItem)(nil),           // 1: null.v1.ReceiptItem
-	(*Receipt)(nil),               // 2: null.v1.Receipt
-	(*ReceiptLinkCandidate)(nil),  // 3: null.v1.ReceiptLinkCandidate
+var file_nagomi_v1_receipt_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_nagomi_v1_receipt_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_nagomi_v1_receipt_proto_goTypes = []any{
+	(ReceiptStatus)(0),            // 0: nagomi.v1.ReceiptStatus
+	(*ReceiptItem)(nil),           // 1: nagomi.v1.ReceiptItem
+	(*Receipt)(nil),               // 2: nagomi.v1.Receipt
+	(*ReceiptLinkCandidate)(nil),  // 3: nagomi.v1.ReceiptLinkCandidate
 	(*money.Money)(nil),           // 4: google.type.Money
 	(*date.Date)(nil),             // 5: google.type.Date
 	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
 }
-var file_null_v1_receipt_proto_depIdxs = []int32{
-	4,  // 0: null.v1.ReceiptItem.unit_price:type_name -> google.type.Money
-	5,  // 1: null.v1.Receipt.receipt_date:type_name -> google.type.Date
-	4,  // 2: null.v1.Receipt.subtotal:type_name -> google.type.Money
-	4,  // 3: null.v1.Receipt.tax:type_name -> google.type.Money
-	4,  // 4: null.v1.Receipt.total:type_name -> google.type.Money
-	0,  // 5: null.v1.Receipt.status:type_name -> null.v1.ReceiptStatus
-	1,  // 6: null.v1.Receipt.items:type_name -> null.v1.ReceiptItem
-	6,  // 7: null.v1.Receipt.created_at:type_name -> google.protobuf.Timestamp
-	6,  // 8: null.v1.Receipt.updated_at:type_name -> google.protobuf.Timestamp
-	4,  // 9: null.v1.Receipt.transaction_amount:type_name -> google.type.Money
-	6,  // 10: null.v1.Receipt.image_taken_at:type_name -> google.protobuf.Timestamp
-	5,  // 11: null.v1.Receipt.best_date:type_name -> google.type.Date
-	4,  // 12: null.v1.ReceiptLinkCandidate.amount:type_name -> google.type.Money
-	6,  // 13: null.v1.ReceiptLinkCandidate.tx_date:type_name -> google.protobuf.Timestamp
+var file_nagomi_v1_receipt_proto_depIdxs = []int32{
+	4,  // 0: nagomi.v1.ReceiptItem.unit_price:type_name -> google.type.Money
+	5,  // 1: nagomi.v1.Receipt.receipt_date:type_name -> google.type.Date
+	4,  // 2: nagomi.v1.Receipt.subtotal:type_name -> google.type.Money
+	4,  // 3: nagomi.v1.Receipt.tax:type_name -> google.type.Money
+	4,  // 4: nagomi.v1.Receipt.total:type_name -> google.type.Money
+	0,  // 5: nagomi.v1.Receipt.status:type_name -> nagomi.v1.ReceiptStatus
+	1,  // 6: nagomi.v1.Receipt.items:type_name -> nagomi.v1.ReceiptItem
+	6,  // 7: nagomi.v1.Receipt.created_at:type_name -> google.protobuf.Timestamp
+	6,  // 8: nagomi.v1.Receipt.updated_at:type_name -> google.protobuf.Timestamp
+	4,  // 9: nagomi.v1.Receipt.transaction_amount:type_name -> google.type.Money
+	6,  // 10: nagomi.v1.Receipt.image_taken_at:type_name -> google.protobuf.Timestamp
+	5,  // 11: nagomi.v1.Receipt.best_date:type_name -> google.type.Date
+	4,  // 12: nagomi.v1.ReceiptLinkCandidate.amount:type_name -> google.type.Money
+	6,  // 13: nagomi.v1.ReceiptLinkCandidate.tx_date:type_name -> google.protobuf.Timestamp
 	14, // [14:14] is the sub-list for method output_type
 	14, // [14:14] is the sub-list for method input_type
 	14, // [14:14] is the sub-list for extension type_name
@@ -589,29 +590,29 @@ var file_null_v1_receipt_proto_depIdxs = []int32{
 	0,  // [0:14] is the sub-list for field type_name
 }
 
-func init() { file_null_v1_receipt_proto_init() }
-func file_null_v1_receipt_proto_init() {
-	if File_null_v1_receipt_proto != nil {
+func init() { file_nagomi_v1_receipt_proto_init() }
+func file_nagomi_v1_receipt_proto_init() {
+	if File_nagomi_v1_receipt_proto != nil {
 		return
 	}
-	file_null_v1_receipt_proto_msgTypes[0].OneofWrappers = []any{}
-	file_null_v1_receipt_proto_msgTypes[1].OneofWrappers = []any{}
+	file_nagomi_v1_receipt_proto_msgTypes[0].OneofWrappers = []any{}
+	file_nagomi_v1_receipt_proto_msgTypes[1].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_null_v1_receipt_proto_rawDesc), len(file_null_v1_receipt_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_nagomi_v1_receipt_proto_rawDesc), len(file_nagomi_v1_receipt_proto_rawDesc)),
 			NumEnums:      1,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_null_v1_receipt_proto_goTypes,
-		DependencyIndexes: file_null_v1_receipt_proto_depIdxs,
-		EnumInfos:         file_null_v1_receipt_proto_enumTypes,
-		MessageInfos:      file_null_v1_receipt_proto_msgTypes,
+		GoTypes:           file_nagomi_v1_receipt_proto_goTypes,
+		DependencyIndexes: file_nagomi_v1_receipt_proto_depIdxs,
+		EnumInfos:         file_nagomi_v1_receipt_proto_enumTypes,
+		MessageInfos:      file_nagomi_v1_receipt_proto_msgTypes,
 	}.Build()
-	File_null_v1_receipt_proto = out.File
-	file_null_v1_receipt_proto_goTypes = nil
-	file_null_v1_receipt_proto_depIdxs = nil
+	File_nagomi_v1_receipt_proto = out.File
+	file_nagomi_v1_receipt_proto_goTypes = nil
+	file_nagomi_v1_receipt_proto_depIdxs = nil
 }
