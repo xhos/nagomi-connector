@@ -13,7 +13,7 @@ import (
 
 type JobSource interface {
 	ListSyncJobs(ctx context.Context) ([]api.SyncJob, error)
-	CompleteSyncJob(ctx context.Context, id int64, cursor time.Time, status *string) error
+	CompleteSyncJob(ctx context.Context, id int64, cursor *time.Time, status *string) error
 }
 
 // Sink receives transactions for delivery to nagomi-core
@@ -75,26 +75,41 @@ func (r *Runner) runJob(ctx context.Context, job api.SyncJob) {
 	p, err := r.factory(job)
 	if err != nil {
 		l.Error("build provider failed", "err", err)
+		r.markFailed(ctx, job.ID)
 		return
 	}
 
 	l.Info("polling")
 	txs, err := p.Poll(ctx)
 	if err != nil {
-		// TODO: detect auth-breaking errors and flip status to 'broken'
 		l.Error("poll failed", "err", err)
+		r.markFailed(ctx, job.ID)
 		return
 	}
 
 	if len(txs) > 0 {
 		if err := r.sink.CreateTransactions(ctx, job.UserID, txs); err != nil {
 			l.Error("sink failed", "err", err, "dropped", len(txs))
+			r.markFailed(ctx, job.ID)
 			return
 		}
 		l.Info("posted to nagomi-core", "count", len(txs))
 	}
 
-	if err := r.jobs.CompleteSyncJob(ctx, job.ID, time.Now(), nil); err != nil {
+	now := time.Now()
+	status := "active"
+	if err := r.jobs.CompleteSyncJob(ctx, job.ID, &now, &status); err != nil {
 		l.Error("complete sync job failed", "err", err)
+	}
+}
+
+func (r *Runner) markFailed(ctx context.Context, id int64) {
+	if ctx.Err() != nil {
+		return
+	}
+	// A failed job must not advance the cursor or appear successfully synced.
+	status := "broken"
+	if err := r.jobs.CompleteSyncJob(ctx, id, nil, &status); err != nil {
+		r.log.Error("record sync failure failed", "job_id", id, "err", err)
 	}
 }

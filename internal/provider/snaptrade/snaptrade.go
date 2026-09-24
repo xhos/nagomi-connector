@@ -85,14 +85,12 @@ func (p *Provider) Poll(ctx context.Context) ([]domain.Transaction, error) {
 		acc := &accounts[i]
 		nagomiAccountID, err := p.resolveAccount(ctx, accountMap, acc)
 		if err != nil {
-			p.log.Error("resolve account failed", "snaptrade_account_id", acc.Id, "err", err)
-			continue
+			return nil, fmt.Errorf("resolve account %s: %w", acc.Id, err)
 		}
 
 		activities, err := p.fetchActivities(ctx, client, acc.Id, startStr, endStr)
 		if err != nil {
-			p.log.Error("fetch activities failed", "snaptrade_account_id", acc.Id, "err", err)
-			continue
+			return nil, fmt.Errorf("fetch activities for account %s: %w", acc.Id, err)
 		}
 
 		for j := range activities {

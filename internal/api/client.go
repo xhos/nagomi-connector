@@ -96,10 +96,14 @@ func (c *Client) ListSyncJobs(ctx context.Context) ([]SyncJob, error) {
 	return out, nil
 }
 
-func (c *Client) CompleteSyncJob(ctx context.Context, id int64, cursor time.Time, newStatus *string) error {
+func (c *Client) CompleteSyncJob(ctx context.Context, id int64, cursor *time.Time, newStatus *string) error {
+	var timestamp *timestamppb.Timestamp
+	if cursor != nil {
+		timestamp = timestamppb.New(*cursor)
+	}
 	_, err := c.connectorClient.CompleteSyncJob(c.withAuth(ctx), &pb.CompleteSyncJobRequest{
 		Id:     id,
-		Cursor: timestamppb.New(cursor),
+		Cursor: timestamp,
 		Status: newStatus,
 	})
 	if err != nil {

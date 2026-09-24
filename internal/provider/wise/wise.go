@@ -74,14 +74,12 @@ func (p *Provider) Poll(ctx context.Context) ([]domain.Transaction, error) {
 	for _, b := range balances {
 		accountID, err := p.resolveAccount(ctx, accountMap, b)
 		if err != nil {
-			p.log.Error("resolve account failed", "balance_id", b.ID, "currency", b.Currency, "err", err)
-			continue
+			return nil, fmt.Errorf("resolve balance %d: %w", b.ID, err)
 		}
 
 		stmt, err := p.wise.GetStatement(ctx, profileID, b.ID, b.Currency, start, end)
 		if err != nil {
-			p.log.Error("get statement failed", "balance_id", b.ID, "currency", b.Currency, "err", err)
-			continue
+			return nil, fmt.Errorf("get statement for balance %d: %w", b.ID, err)
 		}
 
 		for i := range stmt.Transactions {

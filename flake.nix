@@ -51,7 +51,7 @@
         version = self.shortRev or self.dirtyShortRev or "dev";
         src = ./.;
         vendorHash = "sha256-hMBbuZFCz2Dia0if/gS/GPnsONIwEqX4E3b0vYudW7o=";
-        subPackages = ["cmd"];
+        subPackages = ["cmd/server"];
       };
     });
 
@@ -67,7 +67,7 @@
           golangci-lint
 
           (writeShellScriptBin "run" ''
-            exec ${air}/bin/air -build.cmd "go build -o ./tmp/main ./cmd/main.go" -build.bin ./tmp/main
+            exec ${air}/bin/air -build.cmd "go build -o ./tmp/main ./cmd/server" -build.bin ./tmp/main
           '')
 
           (writeShellScriptBin "tst" ''
