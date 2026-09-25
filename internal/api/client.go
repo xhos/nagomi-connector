@@ -229,6 +229,7 @@ func toInput(tx domain.Transaction) *pb.TransactionInput {
 		TxDate:    timestamppb.New(tx.Date),
 		TxAmount:  amountToMoney(tx.Amount, tx.Currency),
 		Direction: directionToProto(tx.Direction),
+		Source:    pb.TransactionSource_TRANSACTION_SOURCE_CONNECTOR,
 	}
 	if tx.ExternalID != "" {
 		in.ExternalId = &tx.ExternalID
