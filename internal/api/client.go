@@ -120,7 +120,7 @@ func (c *Client) ListAccounts(ctx context.Context, userID string) ([]*pb.Account
 	return resp.Accounts, nil
 }
 
-func (c *Client) CreateAccount(ctx context.Context, userID, name, bank, currency string, anchorBalance float64, colors []string) (*pb.Account, error) {
+func (c *Client) CreateAccount(ctx context.Context, userID, name, bank, currency string, anchorBalance float64, color string) (*pb.Account, error) {
 	resp, err := c.accountClient.CreateAccount(c.withAuth(ctx), &pb.CreateAccountRequest{
 		UserId:        userID,
 		Name:          name,
@@ -128,7 +128,7 @@ func (c *Client) CreateAccount(ctx context.Context, userID, name, bank, currency
 		Type:          pb.AccountType_ACCOUNT_CHEQUING,
 		MainCurrency:  currency,
 		AnchorBalance: amountToMoney(anchorBalance, currency),
-		Colors:        colors,
+		Color:         &color,
 	})
 
 	if err != nil {

@@ -29,7 +29,7 @@ type Provider struct {
 // wise does 469 days of history max, so we do a bit less just in case
 const initialLookback = 468 * 24 * time.Hour
 
-var brandColors = []string{"#163300", "#9FE870", "#D4F4B7"}
+var brandColor = "#9FE870"
 
 func New(cfg Config, core *api.Client, userID string, cursor *time.Time, logger *log.Logger) *Provider {
 	return &Provider{
@@ -111,7 +111,7 @@ func (p *Provider) resolveAccount(ctx context.Context, accountMap map[string]int
 		return id, nil
 	}
 
-	acc, err := p.core.CreateAccount(ctx, p.userID, "Wise "+b.Currency, "Wise", b.Currency, b.Amount.Value, brandColors)
+	acc, err := p.core.CreateAccount(ctx, p.userID, "Wise "+b.Currency, "Wise", b.Currency, b.Amount.Value, brandColor)
 	if err != nil {
 		return 0, fmt.Errorf("create account: %w", err)
 	}

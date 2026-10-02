@@ -42,7 +42,7 @@ const cursorOverlap = 24 * time.Hour
 
 const activitiesPageSize = 1000
 
-var brandColors = []string{"#0A2540", "#00D4FF", "#7B61FF"}
+var brandColor = "#00D4FF"
 
 func New(cfg Config, core *api.Client, userID string, cursor *time.Time, logger *log.Logger) *Provider {
 	return &Provider{
@@ -182,7 +182,7 @@ func (p *Provider) resolveAccount(ctx context.Context, accountMap map[string]int
 		}
 	}
 
-	created, err := p.core.CreateAccount(ctx, p.userID, displayName, acc.InstitutionName, currency, anchor, brandColors)
+	created, err := p.core.CreateAccount(ctx, p.userID, displayName, acc.InstitutionName, currency, anchor, brandColor)
 	if err != nil {
 		return 0, fmt.Errorf("create account: %w", err)
 	}
