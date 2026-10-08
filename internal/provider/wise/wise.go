@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"math"
+	"strings"
 	"time"
 
 	"nagomi-connector/internal/api"
@@ -143,8 +144,11 @@ func toDomain(w *wiseapi.Transaction, accountID int64) domain.Transaction {
 		Direction:   dir,
 		Description: w.Details.Description,
 	}
-	if w.Details.Merchant != nil && w.Details.Merchant.Name != "" {
-		tx.Merchant = w.Details.Merchant.Name
+	if m := w.Details.Merchant; m != nil && m.Name != "" {
+		tx.Merchant = m.Name
+		// wise wraps card payments in "Card transaction of 237 JPY issued by
+		// Seven-Eleven TOKYO"; keep only the merchant part, like a bank would
+		tx.Description = strings.TrimSpace(m.Name + " " + m.City)
 	}
 
 	if fee := w.TotalFees.Value; fee != 0 {
