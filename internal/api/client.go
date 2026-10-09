@@ -240,6 +240,9 @@ func toInput(tx domain.Transaction) *pb.TransactionInput {
 	if tx.Merchant != "" {
 		in.Merchant = &tx.Merchant
 	}
+	if tx.TransferRef != "" {
+		in.TransferRef = &tx.TransferRef
+	}
 	return in
 }
 

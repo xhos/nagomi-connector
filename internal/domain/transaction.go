@@ -21,6 +21,9 @@ type Transaction struct {
 	Description string
 	Merchant    string
 
+	// shared by the two sides of a move between the user's own accounts
+	TransferRef string
+
 	// non-empty triggers a linked receipt after the tx is posted
 	ReceiptItems []ReceiptItem
 }

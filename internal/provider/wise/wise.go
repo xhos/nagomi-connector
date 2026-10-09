@@ -143,6 +143,9 @@ func toDomain(w *wiseapi.Transaction, accountID int64) domain.Transaction {
 		Currency:    w.Amount.Currency,
 		Direction:   dir,
 		Description: w.Details.Description,
+		// wise gives both legs of a conversion or move between balances the
+		// same reference; core only pairs a reference seen on two accounts
+		TransferRef: "wise:" + w.ReferenceNumber,
 	}
 	if m := w.Details.Merchant; m != nil && m.Name != "" {
 		tx.Merchant = m.Name

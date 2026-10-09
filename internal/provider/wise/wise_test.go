@@ -49,3 +49,18 @@ func TestToDomainDescription(t *testing.T) {
 		})
 	}
 }
+
+func TestToDomainTransferRef(t *testing.T) {
+	w := &wiseapi.Transaction{
+		Type:            "DEBIT",
+		ReferenceNumber: "BALANCE-5104068188",
+		Details:         wiseapi.Details{Type: "CONVERSION", Description: "Converted 1,000.00 CAD to 114,541 JPY"},
+	}
+	got := toDomain(w, 1)
+	if got.TransferRef != "wise:BALANCE-5104068188" {
+		t.Errorf("TransferRef = %q", got.TransferRef)
+	}
+	if got.ExternalID != "BALANCE-5104068188" {
+		t.Errorf("ExternalID = %q; the dedup key must not change", got.ExternalID)
+	}
+}
